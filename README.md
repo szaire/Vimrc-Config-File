@@ -1,2 +1,2 @@
 # My personal .vimrc Config File
-Repository for my nackups and other configs in vim editor
+Repository for my backups and other configs in vim editor
