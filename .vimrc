@@ -41,7 +41,7 @@ set hidden
 set backspace=indent,eol,start
 set nowrap
 set autochdir " set directory to the current window
-set scrolloff=8
+set scrolloff=6
 " Backup directory
 set backupdir=./.backup,.,/tmp
 set directory=.,./.backup,/tmp
