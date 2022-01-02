@@ -39,6 +39,12 @@ set wildmenu
 set confirm
 set hidden
 set backspace=indent,eol,start
+set nowrap
+set autochdir " set directory to the current window
+set scrolloff=8
+" Backup directory
+set backupdir=./.backup,.,/tmp
+set directory=.,./.backup,/tmp
 " Highlighting
 filetype plugin indent on
 set hlsearch "Highlights search terms"
@@ -83,13 +89,19 @@ let g:airline_symbols.linenr = ' :'
 let g:airline_symbols.maxlinenr = ' ☰ '
 let g:airline_symbols.dirty='⚡'
 
-" Shortcut Mapping
+" Shortcut Mapping ================================================
 " Leader key
 let mapleader = " " " map leader to Space
+
+" Saving with cntrl+s
+nnoremap <C-s> :w<CR>
 
 " NERDTree
 " Variable configuration
 let g:NERDTreeChDirMode=2
+
+" Focus on NerdTree
+nnoremap <F5> :NERDTreeFocus<CR>
 
 " Toggle from editor to archives
 nnoremap <F6> :NERDTreeToggle<CR>
@@ -117,3 +129,13 @@ nnoremap <F12> :Startify<CR>
 nnoremap <C-n> :tabnew<CR>
 nnoremap <C-PageUp> :tabn<CR> 
 nnoremap <C-PageDown> :tabp<CR>
+
+" Toggling to relative numbers
+nnoremap <Leader>n :call ToggleRelativeNumbers()<CR>
+function! ToggleRelativeNumbers()
+    if &rnu
+        setlocal nornu
+    else
+        setlocal rnu
+    endif
+endfunction
