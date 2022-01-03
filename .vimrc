@@ -99,6 +99,7 @@ nnoremap <C-s> :w<CR>
 " NERDTree
 " Variable configuration
 let g:NERDTreeChDirMode=2
+let g:NERDTreeWinSize=17
 
 " Focus on NerdTree
 nnoremap <F5> :NERDTreeFocus<CR>
