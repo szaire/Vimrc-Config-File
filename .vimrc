@@ -6,7 +6,7 @@ Plug 'terroo/vim-simple-emoji'
 Plug 'morhetz/gruvbox'
 if( extensao == "cpp" || extensao == "cc" || extensao == "h" || extensao == "hpp" )
 Plug 'ycm-core/YouCompleteMe'
-endif
+endif 
 Plug 'ycm-core/YouCompleteMe'
 Plug 'jiangmiao/auto-pairs'
 Plug 'SirVer/ultisnips'
@@ -39,7 +39,7 @@ set wildmenu
 set confirm
 set hidden
 set backspace=indent,eol,start
-set nowrap
+set nowrap " allow the lines to pass through the screen
 set autochdir " set directory to the current window
 set scrolloff=6
 " Backup directory
@@ -110,6 +110,9 @@ nnoremap <F6> :NERDTreeToggle<CR>
 " Find the file original directory
 nnoremap <F7> :NERDTreeFind<CR> 
 
+" Focus selected directory on screen
+nnoremap <Leader><Leader> :NERDTreeCWD<CR>
+
 " Navigating Splits
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -140,3 +143,13 @@ function! ToggleRelativeNumbers()
         setlocal rnu
     endif
 endfunction
+
+" Toggling to wrap text
+nnoremap <Leader>w :call ToggleWrap()<CR>
+function! ToggleWrap()
+    if &wrap
+        setlocal nowrap
+    else
+        setlocal wrap
+    endif
+endfunction 
